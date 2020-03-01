@@ -36,6 +36,7 @@ const INITIAL_VIEW_STATE = {
   pitch: 10,
   bearing: 0
 };
+const selectedFeatureIndexes = [];
 
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -51,16 +52,19 @@ const dirLight = new SunLight({
 
 // const data = require('./result.json');
 
-
+const myFeatureCollection = {
+    type: 'FeatureCollection',
+    features: [
+      /* insert features here */
+    ]
+  };
 export default class Map extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       hoveredObject: null,
-      choice: "ANNUAL",
-      modifier: 1,
-       text:" / M^2 Solar Potential",
+      data: myFeatureCollection,
       INITIAL_VIEW_STATE: INITIAL_VIEW_STATE
       
     };
@@ -88,7 +92,7 @@ export default class Map extends Component {
             id: 'geojson-layer',
             data: this.state.data,
             mode: DrawPolygonMode,
-            // selectedFeatureIndexes,
+            selectedFeatureIndexes,
       
             onEdit: ({ updatedData }) => {
               this.setState({
