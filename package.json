@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@turf/difference": "^6.0.1",
     "deck.gl": "^8.0.16",
+    "nebula.gl": "^0.17.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-map-gl": "^5.2.3",
